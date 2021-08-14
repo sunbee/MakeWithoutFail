@@ -14,4 +14,20 @@ Backup command | Use rsync as explained [here](https://www.linuxscrew.com/rsync)
 Backup shell script | Use bash script for backup job as explained [here](https://www.raspberrypi.org/forums/viewtopic.php?p=1710222) and shown in **Exhibit C**.
 Backup automation on task scheduler | Use crontab as explained [here](https://www.factoryforward.com/autorun-python-on-raspberry-pi-code-using-crontab/) and shown in **Exhibit D**.
 
-## Exhibit A: Create the rclone.service file in the home directory `/home/pi`.
+## Exhibit A: Create the `rclone.service` file in the home directory `/home/pi`.
+
+```
+# /etc/systemd/system/rclone.service
+[Unit]
+Description=Dropbox (rclone)
+AssertPathIsDirectory=/mnt/dropbox
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount \
+    --config /home/pi/.config/rclone/rclone.conf \
+    --allow-other \
+    --vfs-cache-mode writes \
+    --vfs-cache-max-size 100M \
+    dropbox: /mnt/dropbox
+ExecStop=/bin/fusermount -u /mnt/dropbox
+```
