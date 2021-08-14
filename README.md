@@ -7,4 +7,4 @@ This note covers automated backups of application data to Cloud with **rclone** 
 
 Step | Instruction
 ---- | -----------
-YAML file for IOT stack | See Andreas Speiss and Graham Garner (here)[https://sensorsiot.github.io/IOTstack/Getting-Started.html]. The application data is mapped to a volumes folder on host machine.
+YAML file for IOT stack | See Andreas Speiss and Graham Garner [here](https://sensorsiot.github.io/IOTstack/Getting-Started.html). The application data is mapped to a volumes folder on host machine.
