@@ -40,7 +40,7 @@ ExecStop=/bin/fusermount -u /mnt/dropbox
 5. Use `ls -l` to verify that the Dropbox folders show up at the mount location. Note that the files may not show up in the File Explorer (GUI).
 6. In case of any errors, proceed as follows:
 	- Grab the error logs with the following command: `systemctl status rclone.service > err.txt`.
-	- Fix the file in the home directory using Nano, then `sudo cp to /etc/systemd/system` as before.
+	- Fix the file in the home directory using Nano, then `sudo cp` to `/etc/systemd/system` as before.
 	- Refresh: `systemctl daemon-reload`.
 
 ## Exhibit B: Backup with rsync.  
@@ -64,9 +64,9 @@ NOW="$(date)"
 echo "Ended backup at $NOW"
 ```
 - The flags are as follows:
-	- -a: save metadata (e.g. ownership) while taking back-up.
-	- -v: verbose
-	- -z: compress
+	- `-a`: save metadata (e.g. ownership) while taking back-up.
+	- `-v`: verbose
+	- `-z`: compress
 - Use `--delete` to clean up files at the destination that have been removed at the source. 
 - Make the shell script executable with chmod as follows:
 ```
@@ -81,7 +81,7 @@ sh /home/pi/backup2dropbox.sh
 ```
 sudo crontab -e
 ```
-Select Nano as the editor from options presented by the interactive shell. Then add the following line to run the shell script at 4:30 am on the 1st and 15th day of every month and every Friday.
+Select Nano as the editor from options presented by the interactive shell. Then add the following line to run the shell script at **4:30 am** on the 1st and 15th day of every month and every Friday.
 ```
 30 4 1,15 * 5 /home/pi/backup2dropbox.sh >> /home/pi/logs/cron.log 2>&1
 ```
