@@ -5,6 +5,6 @@ This note covers automated backups of application data to Cloud with **rclone** 
 
 ## Checklist
 
-Step | Instruction
+Step         | Instruction
 ---------- | -----------
 YAML file for IOT stack | See Andreas Speiss and Graham Garner here. The application data is mapped to a volumes folder on host machine.
