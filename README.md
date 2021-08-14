@@ -64,10 +64,10 @@ NOW="$(date)"
 echo "Ended backup at $NOW"
 ```
 - The flags are as follows:
-	-a: save metadata (e.g. ownership) while taking back-up.
-	-v: verbose
-	-z: compress
-- Use --deleteto clean up files at the destination that have been removed at the source. 
+	- -a: save metadata (e.g. ownership) while taking back-up.
+	- -v: verbose
+	- -z: compress
+- Use `--delete` to clean up files at the destination that have been removed at the source. 
 - Make the shell script executable with chmod as follows:
 ```
  chmod 755 /home/pi/backup2dropbox.sh
