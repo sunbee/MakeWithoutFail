@@ -42,3 +42,38 @@ ExecStop=/bin/fusermount -u /mnt/dropbox
 	- Grab the error logs with the following command:  systemctl status rclone.service > err.txt
 	- Fix the file in the home directory using Nano, then sudo cp to /etc/systemd/system as before.
 	- Refresh: systemctl daemon-reload
+
+## Exhibit B: Backup with rsync.  
+
+To backup, use the command as follows:
+```
+sudo rsync -avz --delete /home/pi/IOTstack/volumes /mnt/dropbox
+```
+To test, execute dry-run as follows:
+```
+sudo rsync -avz --delete --dry-run /home/pi/IOTstack/volumes /mnt/dropbox
+```
+
+## Exhibit C: Write bash (shell) script 'backup2dropbox.sh' in /home/pi for backup with rsync. Use nano following guide [here](https://www.raspberrypi-spy.co.uk/2013/11/quick-guide-to-nano-text-editor-on-the-raspberry-pi/).
+```
+NOW="$(date)"
+echo "Started backup at $NOW"
+# sudo rsync -avz --delete --dry-run /home/pi/IOTstack/volumes /mnt/dropbox
+sudo rsync -avz --delete /home/pi/IOTstack/volumes /mnt/dropbox
+NOW="$(date)"
+echo "Ended backup at $NOW"
+```
+- The flags are as follows:
+	-a: save metadata (e.g. ownership) while taking back-up.
+	-v: verbose
+	-z: compress
+- Use --deleteto clean up files at the destination that have been removed at the source. 
+- Make the shell script executable with chmod as follows:
+```
+ chmod 755 /home/pi/backup2dropbox.sh
+```
+- Then test it as follows:
+```
+sh /home/pi/backup2dropbox.sh
+```
+
