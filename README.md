@@ -54,7 +54,7 @@ To test, execute dry-run as follows:
 sudo rsync -avz --delete --dry-run /home/pi/IOTstack/volumes /mnt/dropbox
 ```
 
-## Exhibit C: Write bash (shell) script 'backup2dropbox.sh' in /home/pi for backup with rsync. Use nano following guide [here](https://www.raspberrypi-spy.co.uk/2013/11/quick-guide-to-nano-text-editor-on-the-raspberry-pi/).
+## Exhibit C: Write bash (shell) script 'backup2dropbox.sh' in `/home/pi` for backup with rsync. Use Nano following guide [here](https://www.raspberrypi-spy.co.uk/2013/11/quick-guide-to-nano-text-editor-on-the-raspberry-pi/).
 ```
 NOW="$(date)"
 echo "Started backup at $NOW"
