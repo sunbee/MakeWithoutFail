@@ -39,9 +39,9 @@ ExecStop=/bin/fusermount -u /mnt/dropbox
 	2. `systemctl enable rclone`
 5. Use `ls -l` to verify that the Dropbox folders show up at the mount location. Note that the files may not show up in the File Explorer (GUI).
 6. In case of any errors, proceed as follows:
-	- Grab the error logs with the following command:  systemctl status rclone.service > err.txt
-	- Fix the file in the home directory using Nano, then sudo cp to /etc/systemd/system as before.
-	- Refresh: systemctl daemon-reload
+	- Grab the error logs with the following command: `systemctl status rclone.service > err.txt`.
+	- Fix the file in the home directory using Nano, then `sudo cp to /etc/systemd/system` as before.
+	- Refresh: `systemctl daemon-reload`.
 
 ## Exhibit B: Backup with rsync.  
 
