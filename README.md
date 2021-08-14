@@ -6,5 +6,5 @@ This note covers automated backups of application data to Cloud with **rclone** 
 ## Checklist
 
 Step | Instruction
-____ | ___________
+---- | -----------
 1 | 2
