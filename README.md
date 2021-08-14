@@ -77,3 +77,15 @@ echo "Ended backup at $NOW"
 sh /home/pi/backup2dropbox.sh
 ```
 
+## Exhibit D: Open up crontab as root. 
+```
+sudo crontab -e
+```
+Select Nano as the editor from options presented by the interactive shell. Then add the following line to run the shell script at 4:30 am on the 1st and 15th day of every month and every Friday.
+```
+30 4 1,15 * 5 /home/pi/backup2dropbox.sh >> /home/pi/logs/cron.log 2>&1
+```
+Make sure to have a logs folder /home/pi/logs. The output will be appended to the log file instead of being sent to standard output. Errors will be sent to standard output. To backup daily, modify as follows:
+```
+30 4 * * * /home/pi/backup2dropbox.sh >> /home/pi/logs/cron.log 2>&1
+```
