@@ -14,3 +14,4 @@ Backup command | Use rsync as explained [here](https://www.linuxscrew.com/rsync)
 Backup shell script | Use bash script for backup job as explained [here](https://www.raspberrypi.org/forums/viewtopic.php?p=1710222) and shown in **Exhibit C**.
 Backup automation on task scheduler | Use crontab as explained [here](https://www.factoryforward.com/autorun-python-on-raspberry-pi-code-using-crontab/) and shown in **Exhibit D**.
 
+## Exhibit A: Create the rclone.service file in the home directory `/home/pi`.
